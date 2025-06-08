@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace trabalhoFinalVinicius
 {
-    public partial class FormCadastroDeProdutos : Form
+    public partial class FormCadastroDePedidos: Form
     {
-        public FormCadastroDeProdutos()
+        public FormCadastroDePedidos()
         {
             InitializeComponent();
-        }
-
-        private void FormCadastroDeProdutos_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

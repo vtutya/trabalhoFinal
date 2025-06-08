@@ -65,6 +65,7 @@
             btnCadastarProdutos.TabIndex = 2;
             btnCadastarProdutos.Text = "Cadastrar Produtos";
             btnCadastarProdutos.UseVisualStyleBackColor = true;
+            btnCadastarProdutos.Click += btnCadastarProdutos_Click;
             // 
             // btnCadastrarPedidos
             // 
@@ -75,6 +76,7 @@
             btnCadastrarPedidos.TabIndex = 3;
             btnCadastrarPedidos.Text = "Cadastrar Pedidos";
             btnCadastrarPedidos.UseVisualStyleBackColor = true;
+            btnCadastrarPedidos.Click += btnCadastrarPedidos_Click;
             // 
             // btnCadastrarUsuarios
             // 
@@ -85,6 +87,7 @@
             btnCadastrarUsuarios.TabIndex = 4;
             btnCadastrarUsuarios.Text = "Cadastrar Usuários";
             btnCadastrarUsuarios.UseVisualStyleBackColor = true;
+            btnCadastrarUsuarios.Click += btnCadastrarUsuarios_Click;
             // 
             // FormPrincipal
             // 

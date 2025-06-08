@@ -18,3 +18,5 @@ C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\De
 C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\ref\trabalhoFinalVinicius.dll
 C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDeClientes.resources
 C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDeProdutos.resources
+C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDePedidos.resources
+C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDeUsuarios.resources
