@@ -20,3 +20,6 @@ C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\De
 C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDeProdutos.resources
 C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDePedidos.resources
 C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.FormCadastroDeUsuarios.resources
+C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalhoFinalVinicius.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\RepositorioTrabalhoFinal\trabalhoFinalVinicius\obj\Debug\net8.0-windows\trabalho.0E924787.Up2Date

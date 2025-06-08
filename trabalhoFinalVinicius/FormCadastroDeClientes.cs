@@ -16,7 +16,7 @@ namespace trabalhoFinalVinicius
         private static readonly HttpClient httpClient = new HttpClient();
         public FormCadastroDeClientes()
         {
-            
+
             InitializeComponent();
         }
 
@@ -28,39 +28,38 @@ namespace trabalhoFinalVinicius
                 MessageBox.Show("CEP inválido. Deve conter 8 dígitos.");
                 return;
             }
-            else
+
+            try
             {
-                try
+                string url = $"https://viacep.com.br/ws/{cep}/json/";
+                var response = httpClient.GetAsync(url).Result;
+                if (response.IsSuccessStatusCode)
                 {
-                    string url = $"https://viacep.com.br/ws/{cep}/json/";
-                    var response = httpClient.GetAsync(url).Result;
-                    if (response.IsSuccessStatusCode)
+                    var content = response.Content.ReadAsStringAsync().Result;
+                    dynamic json = JsonConvert.DeserializeObject(content);
+                    if (json != null && json.logradouro != null)
                     {
-                        var content = response.Content.ReadAsStringAsync().Result;
-                        dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject(content);
-                        if (json != null && json.logradouro != null)
-                        {
-                            var logadouro = json.logradouro;
-                            var bairro = json.bairro;
-                            var cidade = json.localidade;
-                            var utf = json.uf;
-                        }
-                        else
-                        {
-                            MessageBox.Show("CEP não encontrado.");
-                        }
+                        txtLogadouro.Text = json.logradouro;
+                        txtBairro.Text = json.bairro;
+                        txtCidade = json.localidade;
+                        txtUtf = json.uf;
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao buscar CEP.");
+                        MessageBox.Show("CEP não encontrado.");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Erro: {ex.Message}");
+                    MessageBox.Show("Erro ao buscar CEP.");
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}");
+            }
         }
+    
 
         private void FormCadastroDeClientes_Load(object sender, EventArgs e)
         {
@@ -69,7 +68,52 @@ namespace trabalhoFinalVinicius
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\clientes.csv";
 
+            string nome = txtNome.Text.Trim();
+            string cpf = txtCpf.Text.Trim();
+            string cep = txtCep.Text.Trim();
+            buscarCep();
+            string logradouro = txtLogadouro.Text.Trim();
+            string bairro = txtBairro.Text.Trim();
+            string cidade = txtCidade.Text.Trim();
+            string utf = txtUtf.Text.Trim();
+
+            string novaLinha = $"{nome},{cpf},{cep},{logradouro},{bairro},{cidade},{utf}";
+
+            File.AppendAllText(caminhoCsv, Environment.NewLine + novaLinha);
+
+            MessageBox.Show("Cliente cadastrado com sucesso!");
+
+            CarregarClientesNoDataGridView();
+        }
+
+        private void CarregarClientesNoDataGridView()
+        {
+            string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\clientes.csv";
+            if (File.Exists(caminhoCsv))
+            {
+                var linhas = File.ReadAllLines(caminhoCsv);
+                var clientes = new List<string[]>();
+                foreach (var linha in linhas)
+                {
+                    var dados = linha.Split(',');
+                    if (dados.Length == 7)
+                    {
+                        clientes.Add(dados);
+                    }
+                }
+                dgvClientes.DataSource = clientes.Select(c => new
+                {
+                    Nome = c[0],
+                    CPF = c[1],
+                    CEP = c[2],
+                    Logradouro = c[3],
+                    Bairro = c[4],
+                    Cidade = c[5],
+                    UF = c[6]
+                }).ToList();
+            }
         }
     }
 }

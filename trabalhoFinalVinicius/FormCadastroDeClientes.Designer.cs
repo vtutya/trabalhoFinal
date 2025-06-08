@@ -30,17 +30,25 @@
         {
             lblCadClientes = new Label();
             lblNomeClient = new Label();
-            txtNomeCliente = new TextBox();
-            txtCpfClient = new TextBox();
+            txtNome = new TextBox();
+            txtCpf = new TextBox();
             txtEmail = new TextBox();
             txtCep = new TextBox();
             txtTelefone = new TextBox();
-            lblCpf = new Label();
+            lblCpfClient = new Label();
             lblEmailClient = new Label();
             lblCepClient = new Label();
             lblTelefoneClient = new Label();
             btnSalvar = new Button();
             dgvClientes = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            txtLogadouro = new TextBox();
+            txtBairro = new TextBox();
+            txtCidade = new TextBox();
+            txtUtf = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -64,19 +72,19 @@
             lblNomeClient.TabIndex = 1;
             lblNomeClient.Text = "Digite o nome: ";
             // 
-            // txtNomeCliente
+            // txtNome
             // 
-            txtNomeCliente.Location = new Point(52, 187);
-            txtNomeCliente.Name = "txtNomeCliente";
-            txtNomeCliente.Size = new Size(274, 23);
-            txtNomeCliente.TabIndex = 2;
+            txtNome.Location = new Point(52, 187);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(274, 23);
+            txtNome.TabIndex = 2;
             // 
-            // txtCpfClient
+            // txtCpf
             // 
-            txtCpfClient.Location = new Point(52, 292);
-            txtCpfClient.Name = "txtCpfClient";
-            txtCpfClient.Size = new Size(274, 23);
-            txtCpfClient.TabIndex = 3;
+            txtCpf.Location = new Point(52, 292);
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(274, 23);
+            txtCpf.TabIndex = 3;
             // 
             // txtEmail
             // 
@@ -99,15 +107,15 @@
             txtTelefone.Size = new Size(274, 23);
             txtTelefone.TabIndex = 6;
             // 
-            // lblCpf
+            // lblCpfClient
             // 
-            lblCpf.AutoSize = true;
-            lblCpf.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCpf.Location = new Point(52, 247);
-            lblCpf.Name = "lblCpf";
-            lblCpf.Size = new Size(135, 30);
-            lblCpf.TabIndex = 7;
-            lblCpf.Text = "Digite o Cpf: ";
+            lblCpfClient.AutoSize = true;
+            lblCpfClient.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCpfClient.Location = new Point(52, 247);
+            lblCpfClient.Name = "lblCpfClient";
+            lblCpfClient.Size = new Size(135, 30);
+            lblCpfClient.TabIndex = 7;
+            lblCpfClient.Text = "Digite o Cpf: ";
             // 
             // lblEmailClient
             // 
@@ -142,7 +150,7 @@
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalvar.Location = new Point(688, 586);
+            btnSalvar.Location = new Point(840, 604);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(176, 56);
             btnSalvar.TabIndex = 11;
@@ -153,27 +161,103 @@
             // dgvClientes
             // 
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Location = new Point(448, 202);
+            dgvClientes.Location = new Point(662, 146);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.Size = new Size(416, 265);
             dgvClientes.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(402, 142);
+            label1.Name = "label1";
+            label1.Size = new Size(179, 30);
+            label1.TabIndex = 13;
+            label1.Text = "Digite o telefone: ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(402, 247);
+            label2.Name = "label2";
+            label2.Size = new Size(179, 30);
+            label2.TabIndex = 14;
+            label2.Text = "Digite o telefone: ";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(402, 341);
+            label3.Name = "label3";
+            label3.Size = new Size(179, 30);
+            label3.TabIndex = 15;
+            label3.Text = "Digite o telefone: ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(402, 437);
+            label4.Name = "label4";
+            label4.Size = new Size(179, 30);
+            label4.TabIndex = 16;
+            label4.Text = "Digite o telefone: ";
+            // 
+            // txtLogadouro
+            // 
+            txtLogadouro.Location = new Point(402, 187);
+            txtLogadouro.Name = "txtLogadouro";
+            txtLogadouro.Size = new Size(237, 23);
+            txtLogadouro.TabIndex = 17;
+            // 
+            // txtBairro
+            // 
+            txtBairro.Location = new Point(402, 292);
+            txtBairro.Name = "txtBairro";
+            txtBairro.Size = new Size(237, 23);
+            txtBairro.TabIndex = 18;
+            // 
+            // txtCidade
+            // 
+            txtCidade.Location = new Point(402, 399);
+            txtCidade.Name = "txtCidade";
+            txtCidade.Size = new Size(237, 23);
+            txtCidade.TabIndex = 19;
+            // 
+            // txtUtf
+            // 
+            txtUtf.Location = new Point(402, 470);
+            txtUtf.Name = "txtUtf";
+            txtUtf.Size = new Size(237, 23);
+            txtUtf.TabIndex = 20;
             // 
             // FormCadastroDeClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(916, 670);
+            ClientSize = new Size(1106, 765);
+            Controls.Add(txtUtf);
+            Controls.Add(txtCidade);
+            Controls.Add(txtBairro);
+            Controls.Add(txtLogadouro);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(dgvClientes);
             Controls.Add(btnSalvar);
             Controls.Add(lblTelefoneClient);
             Controls.Add(lblCepClient);
             Controls.Add(lblEmailClient);
-            Controls.Add(lblCpf);
+            Controls.Add(lblCpfClient);
             Controls.Add(txtTelefone);
             Controls.Add(txtCep);
             Controls.Add(txtEmail);
-            Controls.Add(txtCpfClient);
-            Controls.Add(txtNomeCliente);
+            Controls.Add(txtCpf);
+            Controls.Add(txtNome);
             Controls.Add(lblNomeClient);
             Controls.Add(lblCadClientes);
             Name = "FormCadastroDeClientes";
@@ -188,16 +272,24 @@
 
         private Label lblCadClientes;
         private Label lblNomeClient;
-        private TextBox txtNomeCliente;
-        private TextBox txtCpfClient;
+        private TextBox txtNome;
+        private TextBox txtCpf;
         private TextBox txtEmail;
         private TextBox txtCep;
         private TextBox txtTelefone;
-        private Label lblCpf;
+        private Label lblCpfClient;
         private Label lblEmailClient;
         private Label lblCepClient;
         private Label lblTelefoneClient;
         private Button btnSalvar;
         private DataGridView dgvClientes;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private TextBox txtLogadouro;
+        private TextBox txtBairro;
+        private TextBox txtCidade;
+        private TextBox txtUtf;
     }
 }
