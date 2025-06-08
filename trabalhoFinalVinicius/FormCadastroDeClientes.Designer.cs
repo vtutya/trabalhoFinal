@@ -40,6 +40,8 @@
             lblCepClient = new Label();
             lblTelefoneClient = new Label();
             btnSalvar = new Button();
+            dgvClientes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
             // lblCadClientes
@@ -146,12 +148,22 @@
             btnSalvar.TabIndex = 11;
             btnSalvar.Text = "SALVAR";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
+            // 
+            // dgvClientes
+            // 
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(448, 202);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.Size = new Size(416, 265);
+            dgvClientes.TabIndex = 12;
             // 
             // FormCadastroDeClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(916, 670);
+            Controls.Add(dgvClientes);
             Controls.Add(btnSalvar);
             Controls.Add(lblTelefoneClient);
             Controls.Add(lblCepClient);
@@ -166,6 +178,8 @@
             Controls.Add(lblCadClientes);
             Name = "FormCadastroDeClientes";
             Text = "FormCadastroDeClientes";
+            Load += FormCadastroDeClientes_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,5 +198,6 @@
         private Label lblCepClient;
         private Label lblTelefoneClient;
         private Button btnSalvar;
+        private DataGridView dgvClientes;
     }
 }
