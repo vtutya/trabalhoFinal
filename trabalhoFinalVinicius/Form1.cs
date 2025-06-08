@@ -12,7 +12,7 @@ namespace trabalhoFinalVinicius
         {
             string usuario = txtUser.Text.Trim();
             string senha = txtSenha.Text.Trim();
-            string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\user.csv";
+            string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\usuarios.csv";
             bool autenticado = false;
 
             using (StreamReader sr = new StreamReader(caminhoCsv))
@@ -33,7 +33,7 @@ namespace trabalhoFinalVinicius
                         string usuarioCsv = campos[0].Trim();
                         string senhaCsv = campos[1].Trim();
 
-                        if (usuarioCsv == "ADMIN" && senhaCsv == "123")
+                        if (usuario == usuarioCsv && senha == senhaCsv && usuarioCsv == "ADMIN" && senhaCsv == "123")
                         {
                             autenticado = true;
                             MessageBox.Show("Usuário autenticado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -43,6 +43,10 @@ namespace trabalhoFinalVinicius
                         }
                     }
                 }
+            }
+            if (!autenticado)
+            {
+                MessageBox.Show("Usuário ou senha inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
