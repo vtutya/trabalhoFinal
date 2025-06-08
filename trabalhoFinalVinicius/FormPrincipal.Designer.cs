@@ -54,6 +54,7 @@
             btnCadastrarClientes.TabIndex = 1;
             btnCadastrarClientes.Text = "Cadastrar Clientes";
             btnCadastrarClientes.UseVisualStyleBackColor = true;
+            btnCadastrarClientes.Click += btnCadastrarClientes_Click;
             // 
             // btnCadastarProdutos
             // 

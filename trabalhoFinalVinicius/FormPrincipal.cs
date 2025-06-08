@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace trabalhoFinalVinicius
 {
-    public partial class FormPrincipal: Form
+    public partial class FormPrincipal : Form
     {
         public FormPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void btnCadastrarClientes_Click(object sender, EventArgs e)
+        {
+            FormCadastroDeClientes formCadastroDeClientes = new FormCadastroDeClientes();
+            formCadastroDeClientes.ShowDialog();
+            this.Hide();
         }
     }
 }
