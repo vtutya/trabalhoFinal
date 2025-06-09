@@ -12,6 +12,7 @@ namespace trabalhoFinalVinicius
 {
     public partial class FormCadastroDeProdutos : Form
     {
+       
         public FormCadastroDeProdutos()
         {
             InitializeComponent();
@@ -19,40 +20,24 @@ namespace trabalhoFinalVinicius
 
         private void FormCadastroDeProdutos_Load(object sender, EventArgs e)
         {
-            carregarProdutosNoDataGridView()
+            carregarProdutosNoDataGridView();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
-        {   // ARRUMAR AQUI 
-
-            //string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\produtos.csv";
+        {
+            string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\produtos.csv";
 
             string nomeProduto = txtNomeProduto.Text.Trim();
             string precoProduto = txtPrecoProduto.Text.Trim();
             double precoDecimal = Convert.ToDouble(precoProduto);
             string descricaoProduto = txtDescricaoProduto.Text.Trim();
 
-            if (string.IsNullOrEmpty(nomeProduto) || string.IsNullOrEmpty(precoProduto) || string.IsNullOrEmpty(descricaoProduto))
-            {
-                MessageBox.Show("Por favor, preencha todos os campos.");
-                return;
-            }
+            string novaLinha = $"{nomeProduto},{precoDecimal},{descricaoProduto}";
 
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(caminhoCsv, true))
-                {
-                    sw.WriteLine($"{nomeProduto},{precoDecimal},{descricaoProduto}");
+            File.AppendAllText(caminhoCsv, Environment.NewLine + novaLinha);
 
-                }
-                MessageBox.Show("Produto salvo com sucesso!");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao salvar produto: {ex.Message}");
-            }
-
+            MessageBox.Show("Produto salvo com sucesso!");
+            carregarProdutosNoDataGridView();
         }
         private void carregarProdutosNoDataGridView()
         {
@@ -63,27 +48,34 @@ namespace trabalhoFinalVinicius
                 {
                     var linhas = File.ReadAllLines(caminhoCsv);
                     var produtos = new List<string[]>();
-                    foreach (var linha in linhas)
+
+                    int contador = 0;
+                    if (linhas.Length > 0 && linhas[0].StartsWith("Nome"))
+                        contador = 1;
+
+                    for (int i = contador; i < linhas.Length; i++)
                     {
-                        var campos = linha.Split(',');
-                        produtos.Add(campos);
+                        var campos = linhas[i].Split(',');
+                        if (campos.Length == 3)
+                            produtos.Add(campos);
                     }
                     dgvProdutos.DataSource = produtos.Select(p => new
                     {
                         Nome = p[0],
-                        Preco = p[1],
-                        Descricao = p[2]
+                        Preço = p[1],
+                        Descrição = p[2]
                     }).ToList();
                 }
                 else
                 {
-                    MessageBox.Show("Arquivo de produtos não encontrado.");
+                    dgvProdutos.DataSource = null;
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show($"Erro ao carregar produtos: {ex.Message}");
+                MessageBox.Show($"Erro ao carregar produtos: {e.Message}");
             }
         }
     }
 }
+
