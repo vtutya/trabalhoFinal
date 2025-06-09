@@ -33,7 +33,7 @@
             txtNomeProduto = new TextBox();
             lblPrecoProd = new Label();
             lblDescProd = new Label();
-            txtPrecoProd = new TextBox();
+            txtPrecoProduto = new TextBox();
             txtDescricaoProduto = new TextBox();
             btnSalvar = new Button();
             dgvProdutos = new DataGridView();
@@ -87,12 +87,12 @@
             lblDescProd.TabIndex = 4;
             lblDescProd.Text = "Digite a descrição do produto: ";
             // 
-            // txtPrecoProd
+            // txtPrecoProduto
             // 
-            txtPrecoProd.Location = new Point(74, 354);
-            txtPrecoProd.Name = "txtPrecoProd";
-            txtPrecoProd.Size = new Size(331, 23);
-            txtPrecoProd.TabIndex = 2;
+            txtPrecoProduto.Location = new Point(74, 354);
+            txtPrecoProduto.Name = "txtPrecoProduto";
+            txtPrecoProduto.Size = new Size(331, 23);
+            txtPrecoProduto.TabIndex = 2;
             // 
             // txtDescricaoProduto
             // 
@@ -110,6 +110,7 @@
             btnSalvar.TabIndex = 5;
             btnSalvar.Text = "SALVAR";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // dgvProdutos
             // 
@@ -129,7 +130,7 @@
             Controls.Add(lblDescProd);
             Controls.Add(lblPrecoProd);
             Controls.Add(txtDescricaoProduto);
-            Controls.Add(txtPrecoProd);
+            Controls.Add(txtPrecoProduto);
             Controls.Add(txtNomeProduto);
             Controls.Add(lblNomeProd);
             Controls.Add(lblCadastroDeProdutos);
@@ -148,7 +149,7 @@
         private TextBox txtNomeProduto;
         private Label lblPrecoProd;
         private Label lblDescProd;
-        private TextBox txtPrecoProd;
+        private TextBox txtPrecoProduto;
         private TextBox txtDescricaoProduto;
         private Button btnSalvar;
         private DataGridView dgvProdutos;

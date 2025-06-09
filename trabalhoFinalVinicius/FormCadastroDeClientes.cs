@@ -62,7 +62,7 @@ namespace trabalhoFinalVinicius
 
         private void FormCadastroDeClientes_Load(object sender, EventArgs e)
         {
-
+            CarregarClientesNoDataGridView();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

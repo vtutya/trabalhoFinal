@@ -1,3 +1,5 @@
 ﻿nome;cpf;email;cep;logadouro;bairro;telefone
 
 teste,12345678911,14780040,Rua 14,Centro,12345678910
+teste,12345678911,14780040,Rua 14,Centro,123456789
+teste1,12345678911,04311001,Avenida do Café,Vila Guarani (Z Sul),123456789
