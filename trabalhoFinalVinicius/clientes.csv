@@ -1,4 +1,3 @@
-﻿nome;cpf;email;logadouro;bairro;cidade;utf;telefone
-Vinicius,5454545454,04311001,,,,
-,04311001,,,,,
-,04311001,04311001,Avenida do Café,Vila Guarani (Z Sul),,
+﻿nome;cpf;email;cep;logadouro;bairro;telefone
+
+teste,12345678911,14780040,Rua 14,Centro,12345678910

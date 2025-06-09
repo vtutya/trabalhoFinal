@@ -41,8 +41,7 @@ namespace trabalhoFinalVinicius
                     {
                         txtLogadouro.Text = json.logradouro;
                         txtBairro.Text = json.bairro;
-                        txtCidade = json.localidade;
-                        txtUtf = json.uf;
+
                     }
                     else
                     {
@@ -76,10 +75,10 @@ namespace trabalhoFinalVinicius
             buscarCep();
             string logradouro = txtLogadouro.Text.Trim();
             string bairro = txtBairro.Text.Trim();
-            string cidade = txtCidade.Text.Trim();
-            string utf = txtUtf.Text.Trim();
+            string telefone = txtTelefone.Text.Trim();  
 
-            string novaLinha = $"{nome},{cpf},{cep},{logradouro},{bairro},{cidade},{utf}";
+
+            string novaLinha = $"{nome},{cpf},{cep},{logradouro},{bairro},{telefone}";
 
             File.AppendAllText(caminhoCsv, Environment.NewLine + novaLinha);
 
@@ -98,7 +97,7 @@ namespace trabalhoFinalVinicius
                 foreach (var linha in linhas)
                 {
                     var dados = linha.Split(',');
-                    if (dados.Length == 7)
+                    if (dados.Length == 6)
                     {
                         clientes.Add(dados);
                     }
@@ -107,11 +106,10 @@ namespace trabalhoFinalVinicius
                 {
                     Nome = c[0],
                     CPF = c[1],
-                    CEP = c[2],
-                    Logradouro = c[3],
-                    Bairro = c[4],
-                    Cidade = c[5],
-                    UF = c[6]
+                    Email = c[2],
+                    CEP = c[3],
+                    Logradouro = c[4],
+                    Bairro = c[5],
                 }).ToList();
             }
         }
