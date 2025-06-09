@@ -109,7 +109,7 @@ namespace trabalhoFinalVinicius
                     Email = c[2],
                     CEP = c[3],
                     Logradouro = c[4],
-                    Bairro = c[5],
+                    Telefone = c[5],
                 }).ToList();
             }
         }
