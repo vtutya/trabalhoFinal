@@ -12,7 +12,7 @@ namespace trabalhoFinalVinicius
 {
     public partial class FormCadastroDeProdutos : Form
     {
-       
+
         public FormCadastroDeProdutos()
         {
             InitializeComponent();
@@ -42,38 +42,27 @@ namespace trabalhoFinalVinicius
         private void carregarProdutosNoDataGridView()
         {
             string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\produtos.csv";
-            try
+
+            if (File.Exists(caminhoCsv))
             {
-                if (File.Exists(caminhoCsv))
+                var linhas = File.ReadAllLines(caminhoCsv);
+                var produtos = new List<string[]>();
+                foreach (var linha in linhas)
                 {
-                    var linhas = File.ReadAllLines(caminhoCsv);
-                    var produtos = new List<string[]>();
-
-                    int contador = 0;
-                    if (linhas.Length > 0 && linhas[0].StartsWith("Nome"))
-                        contador = 1;
-
-                    for (int i = contador; i < linhas.Length; i++)
+                    var dados = linha.Split(',');
+                    if (dados.Length == 3)
                     {
-                        var campos = linhas[i].Split(',');
-                        if (campos.Length == 3)
-                            produtos.Add(campos);
+                        produtos.Add(dados);
                     }
-                    dgvProdutos.DataSource = produtos.Select(p => new
-                    {
-                        Nome = p[0],
-                        Preço = p[1],
-                        Descrição = p[2]
-                    }).ToList();
+
                 }
-                else
+                dgvProdutos.DataSource = produtos.Select(p => new
                 {
-                    dgvProdutos.DataSource = null;
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Erro ao carregar produtos: {e.Message}");
+                    NomeProduto = p[0],
+                    PrecoProduto = Convert.ToDouble(p[1]),
+                    DescricaoProduto = p[2]
+                }).ToList();
+
             }
         }
     }
