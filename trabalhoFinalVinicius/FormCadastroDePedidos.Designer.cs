@@ -75,13 +75,12 @@
             btnEnviar.TabIndex = 3;
             btnEnviar.Text = "ENVIAR";
             btnEnviar.UseVisualStyleBackColor = true;
-            btnEnviar.Click += btnEnviar_Click;
             // 
             // listProdutos
             // 
             listProdutos.FormattingEnabled = true;
             listProdutos.ItemHeight = 15;
-            listProdutos.Location = new Point(435, 82);
+            listProdutos.Location = new Point(444, 105);
             listProdutos.Name = "listProdutos";
             listProdutos.Size = new Size(461, 154);
             listProdutos.TabIndex = 4;
@@ -128,7 +127,6 @@
             Controls.Add(lblCadDePedidos);
             Name = "FormCadastroDePedidos";
             Text = "FormCadastroDePedidos";
-            Load += FormCadastroDePedidos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTotal).EndInit();
             ResumeLayout(false);
             PerformLayout();
