@@ -16,11 +16,14 @@ namespace trabalhoFinalVinicius
         public FormCadastroDeProdutos()
         {
             InitializeComponent();
+
         }
 
         private void FormCadastroDeProdutos_Load(object sender, EventArgs e)
         {
+
             carregarProdutosNoDataGridView();
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)

@@ -77,6 +77,8 @@ namespace trabalhoFinalVinicius
         private void FormCadastroDePedidos_Load(object sender, EventArgs e)
         {
             exibirProdutosNaLista();
+            dgvTotal.Columns.Add("Nome", "Nome do Produto");
+            dgvTotal.Columns.Add("Preco", "Preço");
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -106,7 +108,7 @@ namespace trabalhoFinalVinicius
                             string precoProduto = campos[2].Trim();
 
 
-                            dgvTotal.Rows.Add(nomeProduto, precoProduto);
+                            dgvTotal.Rows.Add(nomeProduto, $"R$ {precoProduto}");
 
 
                             // adicionar calculo do total 
@@ -155,19 +157,19 @@ namespace trabalhoFinalVinicius
                 var cellValue = row.Cells[precoColIndex].Value;
                 if (cellValue != null)
                 {
-                    string precoStr = cellValue.ToString().Replace("R$", "").Trim();
+                    string precoStr = cellValue.ToString().Replace("R$", "").Trim().Replace(",", ".");
                     if (double.TryParse(precoStr, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double preco))
                     {
                         total += preco;
                     }
                     else
                     {
-                        MessageBox.Show($"Valor inválido na linha {row.Index + 1}.");
+                        MessageBox.Show($"Valor inválido na linha {row.Index + 1}: '{precoStr}' ");
                         return;
                     }
                 }
             }
-            dgvTotal.Rows.Add("Total", $"R$ {total:F2}"); // Adiciona a linha de total
+            dgvTotal.Rows.Add("Total",$"{total:F2}"); // Adiciona a linha de total
         }
 
 
