@@ -26,7 +26,7 @@ namespace trabalhoFinalVinicius
             string cpfCliente = txtCpf.Text.Trim();
             if (File.Exists(caminhoCsvClientes))
             {
-            
+
                 string[] linhas = File.ReadAllLines(caminhoCsvClientes);
                 if (linhas.Length <= 1)
                 {
@@ -40,7 +40,7 @@ namespace trabalhoFinalVinicius
                     if (campos.Length >= 2)
                     {
                         string nomeClienteCsv = campos[0].Trim();
-                        string cpfClienteArquivo = campos[1].Trim();;
+                        string cpfClienteArquivo = campos[1].Trim(); ;
                         dgvTotal.Columns.Add(nomeClienteCsv, cpfCliente);
                     }
                 }
@@ -104,15 +104,68 @@ namespace trabalhoFinalVinicius
                         {
                             string nomeProduto = campos[1].Trim();
                             string precoProduto = campos[2].Trim();
-                            
+
 
                             dgvTotal.Rows.Add(nomeProduto, precoProduto);
+
+
+                            // adicionar calculo do total 
+
                             return;
                         }
                     }
                 }
                 MessageBox.Show("Produto não encontrado.");
             }
+        }
+
+        private void calcularTotalDosProdutos()
+        {
+            double total = 0.0;
+
+            if (dgvTotal.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum produto adicionado.");
+                return;
+            }
+
+            int precoColIndex = -1;
+            foreach (DataGridViewColumn column in dgvTotal.Columns)
+            {
+                if (column.HeaderText == "Preço")
+                {
+                    precoColIndex = column.Index;
+                    break;
+                }
+            }
+
+            if (precoColIndex == -1)
+            {
+                precoColIndex = dgvTotal.Columns.Add("Preço", "Preço");
+            }
+
+            foreach (DataGridViewRow row in dgvTotal.Rows)
+            {
+                if (row.IsNewRow) continue;
+                var cellValue = row.Cells[precoColIndex].Value;
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double preco))
+                {
+                    total += preco;
+                }
+            }
+
+            dgvTotal.Rows.Add("Total", total.ToString("F2")); 
+        }
+
+
+
+
+
+
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            calcularTotalDosProdutos();
         }
     }
 }
