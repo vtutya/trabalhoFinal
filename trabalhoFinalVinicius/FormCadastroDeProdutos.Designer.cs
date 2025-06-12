@@ -37,6 +37,8 @@
             txtDescricaoProduto = new TextBox();
             btnSalvar = new Button();
             dgvProdutos = new DataGridView();
+            lblIdProduto = new Label();
+            txtIdProduto = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             // 
             lblNomeProd.AutoSize = true;
             lblNomeProd.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNomeProd.Location = new Point(74, 159);
+            lblNomeProd.Location = new Point(73, 282);
             lblNomeProd.Name = "lblNomeProd";
             lblNomeProd.Size = new Size(266, 30);
             lblNomeProd.TabIndex = 1;
@@ -62,7 +64,7 @@
             // 
             // txtNomeProduto
             // 
-            txtNomeProduto.Location = new Point(74, 207);
+            txtNomeProduto.Location = new Point(74, 353);
             txtNomeProduto.Name = "txtNomeProduto";
             txtNomeProduto.Size = new Size(331, 23);
             txtNomeProduto.TabIndex = 2;
@@ -71,7 +73,7 @@
             // 
             lblPrecoProd.AutoSize = true;
             lblPrecoProd.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPrecoProd.Location = new Point(74, 292);
+            lblPrecoProd.Location = new Point(74, 427);
             lblPrecoProd.Name = "lblPrecoProd";
             lblPrecoProd.Size = new Size(265, 30);
             lblPrecoProd.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             lblDescProd.AutoSize = true;
             lblDescProd.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDescProd.Location = new Point(74, 445);
+            lblDescProd.Location = new Point(74, 545);
             lblDescProd.Name = "lblDescProd";
             lblDescProd.Size = new Size(299, 30);
             lblDescProd.TabIndex = 4;
@@ -89,14 +91,14 @@
             // 
             // txtPrecoProduto
             // 
-            txtPrecoProduto.Location = new Point(74, 354);
+            txtPrecoProduto.Location = new Point(74, 485);
             txtPrecoProduto.Name = "txtPrecoProduto";
             txtPrecoProduto.Size = new Size(331, 23);
             txtPrecoProduto.TabIndex = 2;
             // 
             // txtDescricaoProduto
             // 
-            txtDescricaoProduto.Location = new Point(74, 504);
+            txtDescricaoProduto.Location = new Point(74, 606);
             txtDescricaoProduto.Name = "txtDescricaoProduto";
             txtDescricaoProduto.Size = new Size(331, 23);
             txtDescricaoProduto.TabIndex = 2;
@@ -120,11 +122,30 @@
             dgvProdutos.Size = new Size(370, 217);
             dgvProdutos.TabIndex = 6;
             // 
+            // lblIdProduto
+            // 
+            lblIdProduto.AutoSize = true;
+            lblIdProduto.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblIdProduto.Location = new Point(74, 139);
+            lblIdProduto.Name = "lblIdProduto";
+            lblIdProduto.Size = new Size(231, 30);
+            lblIdProduto.TabIndex = 7;
+            lblIdProduto.Text = "Digite o Id do produto: ";
+            // 
+            // txtIdProduto
+            // 
+            txtIdProduto.Location = new Point(74, 211);
+            txtIdProduto.Name = "txtIdProduto";
+            txtIdProduto.Size = new Size(331, 23);
+            txtIdProduto.TabIndex = 8;
+            // 
             // FormCadastroDeProdutos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(920, 663);
+            Controls.Add(txtIdProduto);
+            Controls.Add(lblIdProduto);
             Controls.Add(dgvProdutos);
             Controls.Add(btnSalvar);
             Controls.Add(lblDescProd);
@@ -153,5 +174,7 @@
         private TextBox txtDescricaoProduto;
         private Button btnSalvar;
         private DataGridView dgvProdutos;
+        private Label lblIdProduto;
+        private TextBox txtIdProduto;
     }
 }

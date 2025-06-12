@@ -26,7 +26,8 @@ namespace trabalhoFinalVinicius
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             string caminhoCsv = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\produtos.csv";
-
+            
+            string idProduto = txtIdProduto.Text.Trim();
             string nomeProduto = txtNomeProduto.Text.Trim();
             string precoProduto = txtPrecoProduto.Text.Trim();
             double precoDecimal = Convert.ToDouble(precoProduto);
