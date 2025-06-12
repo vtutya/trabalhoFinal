@@ -89,6 +89,7 @@
             btnEnviar.TabIndex = 5;
             btnEnviar.Text = "ENVIAR";
             btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // FormCadastroDeUsuarios
             // 
@@ -103,6 +104,7 @@
             Controls.Add(lblCadUsuarios);
             Name = "FormCadastroDeUsuarios";
             Text = "FormCadastroDeUsuarios";
+            Load += FormCadastroDeUsuarios_Load;
             ResumeLayout(false);
             PerformLayout();
         }
