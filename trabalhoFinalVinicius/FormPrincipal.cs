@@ -44,5 +44,12 @@ namespace trabalhoFinalVinicius
             formCadastroDeUsuarios.Show();
             this.Hide();
         }
+
+        private void btnConsultarPedidos_Click(object sender, EventArgs e)
+        {
+            FormConsultaDePedidos formConsultaDePedidos = new FormConsultaDePedidos();
+            formConsultaDePedidos.Show();
+            this.Hide();
+        }
     }
 }

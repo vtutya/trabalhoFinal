@@ -33,6 +33,7 @@
             btnCadastarProdutos = new Button();
             btnCadastrarPedidos = new Button();
             btnCadastrarUsuarios = new Button();
+            btnConsultarPedidos = new Button();
             SuspendLayout();
             // 
             // lblFrmPrincipal
@@ -89,11 +90,23 @@
             btnCadastrarUsuarios.UseVisualStyleBackColor = true;
             btnCadastrarUsuarios.Click += btnCadastrarUsuarios_Click;
             // 
+            // btnConsultarPedidos
+            // 
+            btnConsultarPedidos.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConsultarPedidos.Location = new Point(421, 228);
+            btnConsultarPedidos.Name = "btnConsultarPedidos";
+            btnConsultarPedidos.Size = new Size(259, 55);
+            btnConsultarPedidos.TabIndex = 5;
+            btnConsultarPedidos.Text = "Consultar Pedidos";
+            btnConsultarPedidos.UseVisualStyleBackColor = true;
+            btnConsultarPedidos.Click += btnConsultarPedidos_Click;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1036, 644);
+            Controls.Add(btnConsultarPedidos);
             Controls.Add(btnCadastrarUsuarios);
             Controls.Add(btnCadastrarPedidos);
             Controls.Add(btnCadastarProdutos);
@@ -112,5 +125,6 @@
         private Button btnCadastarProdutos;
         private Button btnCadastrarPedidos;
         private Button btnCadastrarUsuarios;
+        private Button btnConsultarPedidos;
     }
 }
