@@ -180,6 +180,31 @@ namespace trabalhoFinalVinicius
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             calcularTotalDosProdutos();
+            string caminhoCsvPedidos = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\pedidos.csv";
+            
+            var linhas = new List<string>();
+
+            var colunas = new List<string>();
+            foreach (DataGridViewColumn coluna in dgvTotal.Columns)
+            {
+                colunas.Add(coluna.HeaderText);
+                linhas.Add(string.Join(";", colunas));
+            }
+
+            foreach(DataGridViewRow row in dgvTotal.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == "Total")
+                    continue;
+
+                var valores = new List<string>();
+                foreach( DataGridViewCell cell in row.Cells)
+                    valores.Add(cell.Value?.ToString() ?? "");
+                linhas.Add(string.Join(";", valores));
+            }
+            File.WriteAllLines(caminhoCsvPedidos, linhas, Encoding.UTF8);
+            MessageBox.Show("Pedido salvo com sucesso!");
         }
     }
 }
