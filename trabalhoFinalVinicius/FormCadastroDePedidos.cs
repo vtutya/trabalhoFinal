@@ -21,6 +21,30 @@ namespace trabalhoFinalVinicius
 
         private void btnVerificar_Click(object sender, EventArgs e)
         {
+            string caminhoCsvClientes = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\clientes.csv";
+            string nomeCliente = null;
+            string cpfCliente = txtCpf.Text.Trim();
+            if (File.Exists(caminhoCsvClientes))
+            {
+            
+                string[] linhas = File.ReadAllLines(caminhoCsvClientes);
+                if (linhas.Length <= 1)
+                {
+                    MessageBox.Show("Nenhum cliente cadastrado.");
+                    return;
+                }
+                for (int i = 1; i < linhas.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(linhas[i])) continue;
+                    string[] campos = linhas[i].Split(';');
+                    if (campos.Length >= 2)
+                    {
+                        string nomeClienteCsv = campos[0].Trim();
+                        string cpfClienteArquivo = campos[1].Trim();
+                        dgvTotal.Rows.Add(nomeClienteCsv, cpfClienteArquivo);
+                    }
+                }
+            }
 
         }
 
@@ -35,7 +59,7 @@ namespace trabalhoFinalVinicius
                     MessageBox.Show("Nenhum produto cadastrado.");
                     return;
                 }
-                for (int i =1; i < linhas.Length; i++)
+                for (int i = 1; i < linhas.Length; i++)
                 {
                     if (string.IsNullOrWhiteSpace(linhas[i])) continue;
                     string[] campos = linhas[i].Split(';');
@@ -53,6 +77,11 @@ namespace trabalhoFinalVinicius
         private void FormCadastroDePedidos_Load(object sender, EventArgs e)
         {
             exibirProdutosNaLista();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

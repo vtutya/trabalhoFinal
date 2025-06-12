@@ -58,9 +58,10 @@ namespace trabalhoFinalVinicius
                 }
                 dgvProdutos.DataSource = produtos.Select(p => new
                 {
-                    NomeProduto = p[0],
-                    PrecoProduto = Convert.ToDouble(p[1]),
-                    DescricaoProduto = p[2]
+                    CodigoProduto = p[0],
+                    NomeProduto = p[1],
+                    PrecoProduto = Convert.ToDouble(p[2]),
+                    DescricaoProduto = p[3]
                 }).ToList();
 
             }
