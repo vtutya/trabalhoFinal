@@ -129,34 +129,46 @@ namespace trabalhoFinalVinicius
                 return;
             }
 
+
+
+
             int precoColIndex = -1;
             foreach (DataGridViewColumn column in dgvTotal.Columns)
             {
                 if (column.HeaderText == "Preço")
-                {
+                    {
                     precoColIndex = column.Index;
                     break;
                 }
             }
 
+
             if (precoColIndex == -1)
             {
-                precoColIndex = dgvTotal.Columns.Add("Preço", "Preço");
+                precoColIndex = dgvTotal.Columns.Add("Preço", "Preço");   // adiciona a coluna de preco 
             }
+
 
             foreach (DataGridViewRow row in dgvTotal.Rows)
             {
                 if (row.IsNewRow) continue;
                 var cellValue = row.Cells[precoColIndex].Value;
-                if (cellValue != null && double.TryParse(cellValue.ToString(), out double preco))
+                if (cellValue != null)
                 {
-                    total += preco;
+                    string precoStr = cellValue.ToString().Replace("R$", "").Trim();
+                    if (double.TryParse(precoStr, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double preco))
+                    {
+                        total += preco;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Valor inválido na linha {row.Index + 1}.");
+                        return;
+                    }
                 }
             }
-
-            dgvTotal.Rows.Add("Total", total.ToString("F2")); 
+            dgvTotal.Rows.Add("Total", $"R$ {total:F2}"); // Adiciona a linha de total
         }
-
 
 
 

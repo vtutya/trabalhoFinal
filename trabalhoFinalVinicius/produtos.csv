@@ -1,8 +1,8 @@
 ﻿codigo;nome;preco;descricao
-1;abacate;10.99;Fruta verde rica em potássio
-2;banana;5.99;Fruta amarela rica em potássio
-3;laranja;7.49;Fruta laranja rica em vitamina C
-4;maçã;6.99;Fruta vermelha rica em fibras
-5;arroz;4.99;Grão integral rico em fibras
-6;feijao;3.99;Grão integral rico em proteínas
-7;teste;10.96;teste testetete
+1;abacate;10;Fruta verde rica em potássio
+2;banana;5;Fruta amarela rica em potássio
+3;laranja;7.00;Fruta laranja rica em vitamina C
+4;maçã;6;Fruta vermelha rica em fibras
+5;arroz;4;Grão integral rico em fibras
+6;feijao;3;Grão integral rico em proteínas
+7;teste;10;teste testetete
