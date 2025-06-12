@@ -83,7 +83,7 @@
             // btnEnviar
             // 
             btnEnviar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEnviar.Location = new Point(52, 316);
+            btnEnviar.Location = new Point(383, 317);
             btnEnviar.Name = "btnEnviar";
             btnEnviar.Size = new Size(116, 34);
             btnEnviar.TabIndex = 5;
