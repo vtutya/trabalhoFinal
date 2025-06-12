@@ -40,8 +40,8 @@ namespace trabalhoFinalVinicius
                     if (campos.Length >= 2)
                     {
                         string nomeClienteCsv = campos[0].Trim();
-                        string cpfClienteArquivo = campos[1].Trim();
-                        dgvTotal.Rows.Add(nomeClienteCsv, cpfClienteArquivo);
+                        string cpfClienteArquivo = campos[1].Trim();;
+                        dgvTotal.Columns.Add(nomeClienteCsv, cpfCliente);
                     }
                 }
             }
@@ -81,7 +81,38 @@ namespace trabalhoFinalVinicius
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            string iDProdString = txtId.Text.Trim();
+            int idProduto = Convert.ToInt32(iDProdString);
+            string caminhoCsvProdutos = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\produtos.csv";
 
+            if (File.Exists(caminhoCsvProdutos))
+            {
+                string[] linhas = File.ReadAllLines(caminhoCsvProdutos);
+                if (linhas.Length <= 1)
+                {
+                    MessageBox.Show("Nenhum produto cadastrado.");
+                    return;
+                }
+                for (int i = 1; i < linhas.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(linhas[i])) continue;
+                    string[] campos = linhas[i].Split(';');
+                    if (campos.Length >= 3)
+                    {
+                        int idProdutoArquivo = Convert.ToInt32(campos[0].Trim());
+                        if (idProdutoArquivo == idProduto)
+                        {
+                            string nomeProduto = campos[1].Trim();
+                            string precoProduto = campos[2].Trim();
+                            
+
+                            dgvTotal.Rows.Add(nomeProduto, precoProduto);
+                            return;
+                        }
+                    }
+                }
+                MessageBox.Show("Produto não encontrado.");
+            }
         }
     }
 }
