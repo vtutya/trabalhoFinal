@@ -39,11 +39,12 @@ namespace trabalhoFinalVinicius
                 {
                     if (string.IsNullOrWhiteSpace(linhas[i])) continue;
                     string[] campos = linhas[i].Split(';');
-                    if (campos.Length >= 2)
+                    if (campos.Length >= 3)
                     {
-                        string nomeProduto = campos[0].Trim();
-                        string precoProduto = campos[1].Trim();
-                        listProdutos.Items.Add($"{nomeProduto} - R$ {precoProduto}");
+                        string idProduto = campos[0].Trim();
+                        string nomeProduto = campos[1].Trim();
+                        string precoProduto = campos[2].Trim();
+                        listProdutos.Items.Add($" {idProduto} - {nomeProduto} - R$ {precoProduto}");
                     }
                 }
             }

@@ -34,7 +34,7 @@
             btnVerificar = new Button();
             listProdutos = new ListBox();
             dgvTotal = new DataGridView();
-            btnFinalizar = new Button();
+            btnAdicionar = new Button();
             btnSalvar = new Button();
             txtNome = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvTotal).BeginInit();
@@ -82,7 +82,7 @@
             // 
             listProdutos.FormattingEnabled = true;
             listProdutos.ItemHeight = 15;
-            listProdutos.Location = new Point(444, 105);
+            listProdutos.Location = new Point(444, 72);
             listProdutos.Name = "listProdutos";
             listProdutos.Size = new Size(461, 154);
             listProdutos.TabIndex = 4;
@@ -95,14 +95,14 @@
             dgvTotal.Size = new Size(481, 233);
             dgvTotal.TabIndex = 5;
             // 
-            // btnFinalizar
+            // btnAdicionar
             // 
-            btnFinalizar.Location = new Point(830, 275);
-            btnFinalizar.Name = "btnFinalizar";
-            btnFinalizar.Size = new Size(75, 23);
-            btnFinalizar.TabIndex = 6;
-            btnFinalizar.Text = "Finalizar";
-            btnFinalizar.UseVisualStyleBackColor = true;
+            btnAdicionar.Location = new Point(800, 275);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(105, 23);
+            btnAdicionar.TabIndex = 6;
+            btnAdicionar.Text = "ADICIONAR";
+            btnAdicionar.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
@@ -116,7 +116,7 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(444, 275);
+            txtNome.Location = new Point(401, 276);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(335, 23);
             txtNome.TabIndex = 8;
@@ -128,7 +128,7 @@
             ClientSize = new Size(917, 661);
             Controls.Add(txtNome);
             Controls.Add(btnSalvar);
-            Controls.Add(btnFinalizar);
+            Controls.Add(btnAdicionar);
             Controls.Add(dgvTotal);
             Controls.Add(listProdutos);
             Controls.Add(btnVerificar);
@@ -151,7 +151,7 @@
         private Button btnVerificar;
         private ListBox listProdutos;
         private DataGridView dgvTotal;
-        private Button btnFinalizar;
+        private Button btnAdicionar;
         private Button btnSalvar;
         private TextBox txtNome;
     }
