@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,47 @@ using System.Windows.Forms;
 
 namespace trabalhoFinalVinicius
 {
-    public partial class FormCadastroDePedidos: Form
+    public partial class FormCadastroDePedidos : Form
     {
         public FormCadastroDePedidos()
         {
+
             InitializeComponent();
+        }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exibirProdutosNaLista()
+        {
+            string caminhoCsvProdutos = "C:\\Users\\Usuario\\Documents\\RepositorioTrabalhoFinal\\trabalhoFinalVinicius\\produtos.csv";
+            if (File.Exists(caminhoCsvProdutos))
+            {
+                string[] linhas = File.ReadAllLines(caminhoCsvProdutos);
+                if (linhas.Length <= 1)
+                {
+                    MessageBox.Show("Nenhum produto cadastrado.");
+                    return;
+                }
+                for (int i =1; i < linhas.Length; i++)
+                {
+                    if (string.IsNullOrWhiteSpace(linhas[i])) continue;
+                    string[] campos = linhas[i].Split(';');
+                    if (campos.Length >= 2)
+                    {
+                        string nomeProduto = campos[0].Trim();
+                        string precoProduto = campos[1].Trim();
+                        listProdutos.Items.Add($"{nomeProduto} - R$ {precoProduto}");
+                    }
+                }
+            }
+        }
+
+        private void FormCadastroDePedidos_Load(object sender, EventArgs e)
+        {
+            exibirProdutosNaLista();
         }
     }
 }

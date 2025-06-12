@@ -31,11 +31,12 @@
             lblCadDePedidos = new Label();
             lblDigCpf = new Label();
             txtCpf = new TextBox();
-            btnEnviar = new Button();
+            btnVerificar = new Button();
             listProdutos = new ListBox();
             dgvTotal = new DataGridView();
             btnFinalizar = new Button();
             btnSalvar = new Button();
+            txtNome = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvTotal).BeginInit();
             SuspendLayout();
             // 
@@ -66,15 +67,16 @@
             txtCpf.Size = new Size(335, 23);
             txtCpf.TabIndex = 2;
             // 
-            // btnEnviar
+            // btnVerificar
             // 
-            btnEnviar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEnviar.Location = new Point(50, 175);
-            btnEnviar.Name = "btnEnviar";
-            btnEnviar.Size = new Size(116, 29);
-            btnEnviar.TabIndex = 3;
-            btnEnviar.Text = "ENVIAR";
-            btnEnviar.UseVisualStyleBackColor = true;
+            btnVerificar.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnVerificar.Location = new Point(50, 175);
+            btnVerificar.Name = "btnVerificar";
+            btnVerificar.Size = new Size(116, 29);
+            btnVerificar.TabIndex = 3;
+            btnVerificar.Text = "VERIFICAR";
+            btnVerificar.UseVisualStyleBackColor = true;
+            btnVerificar.Click += btnVerificar_Click;
             // 
             // listProdutos
             // 
@@ -112,21 +114,30 @@
             btnSalvar.Text = "SALVAR";
             btnSalvar.UseVisualStyleBackColor = true;
             // 
+            // txtNome
+            // 
+            txtNome.Location = new Point(444, 275);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(335, 23);
+            txtNome.TabIndex = 8;
+            // 
             // FormCadastroDePedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(917, 661);
+            Controls.Add(txtNome);
             Controls.Add(btnSalvar);
             Controls.Add(btnFinalizar);
             Controls.Add(dgvTotal);
             Controls.Add(listProdutos);
-            Controls.Add(btnEnviar);
+            Controls.Add(btnVerificar);
             Controls.Add(txtCpf);
             Controls.Add(lblDigCpf);
             Controls.Add(lblCadDePedidos);
             Name = "FormCadastroDePedidos";
             Text = "FormCadastroDePedidos";
+            Load += FormCadastroDePedidos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvTotal).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -137,10 +148,11 @@
         private Label lblCadDePedidos;
         private Label lblDigCpf;
         private TextBox txtCpf;
-        private Button btnEnviar;
+        private Button btnVerificar;
         private ListBox listProdutos;
         private DataGridView dgvTotal;
         private Button btnFinalizar;
         private Button btnSalvar;
+        private TextBox txtNome;
     }
 }
